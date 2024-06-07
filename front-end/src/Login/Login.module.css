@@ -1,0 +1,111 @@
+.body {
+  background: linear-gradient(45deg, lightgreen, green);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  clip-path: circle(63.2% at 100% 50%);
+}
+
+.registerForm {
+  width: 50em;
+  height: 20em;
+  background: rgba(144, 238, 144, 0.576);
+  display: flex;
+  gap: 1em;
+  margin: auto;
+  margin-top: calc(100vh / 2 - 10em);
+  justify-content: space-between;
+}
+
+.registerForm form {
+  background: white;
+  height: 120%;
+  width: 20em;
+  transform: translateY(-2em);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  justify-content: center;
+}
+
+.form-group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.form-group input {
+  border: 1px solid black;
+  padding: 0.2em;
+  width: calc(100% - 3em);
+}
+
+.form-group input:focus {
+  outline: 1px solid green;
+  outline-offset: 1px;
+  background: rgba(0, 0, 0, 0.194);
+}
+
+.form-group label {
+  position: absolute;
+  left: 3em;
+  top: 0.7em;
+  font-size: 0.7em;
+  transition: all 0.1s ease;
+}
+
+.form-group input:focus ~ label {
+  transform: translate(-1em, -2.5em);
+}
+
+.form-button {
+  padding-inline: 1.5em;
+  display: flex;
+  gap: 1em;
+}
+
+.button {
+  padding: 0.2em 2em;
+  color: white;
+}
+
+.button-success {
+  background-color: green;
+}
+
+.button-cancel {
+  border: 1px solid orange;
+  color: orange;
+  transition: all 0.1s ease;
+}
+
+.button-cancel:hover {
+  background-color: orange;
+  color: white;
+}
+
+.ask {
+  color: white;
+  text-align: center;
+  margin: auto;
+  width: 25em;
+}
+
+.ask h3 {
+  font-weight: bold;
+}
+
+.ask a {
+  border: 1px solid white;
+  padding: 0.2em 1.5em;
+  transition: all 0.2s ease;
+}
+
+.ask a:hover {
+  background: white;
+  color: green;
+}
