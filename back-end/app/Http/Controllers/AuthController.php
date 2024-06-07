@@ -15,17 +15,17 @@ class AuthController extends Controller
             'fullName' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
-            "dateOfBirth"=>"required",
+            "dateOfBirth" => "required",
         ]);
-
+        
         $user = User::create([
-            'fullName' => $request->name,
+            'fullName' => $request->fullName,
             'email' => $request->email,
-            'username' => $request->username,
             'password' => Hash::make($request->password),
+            "dateOfBirth" => $request->dateOfBirth
             // 'role' => $request->role,
         ]);
-
+        
         // $token = Auth::login($user);
         $token = $user->createToken('token')->plainTextToken;
         $cookie = cookie('jwt', $token, 5);
@@ -40,11 +40,12 @@ class AuthController extends Controller
             ]
         ])->withCookie($cookie);
 
-        $this->sendEmail("mezrioui.hakim@gmial.com", "hakim", "user registred", "<p>hello world</p>");
+        // $this->sendEmail("mezrioui.hakim@gmial.com", "hakim", "user registred", "<p>hello world</p>");
 
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',

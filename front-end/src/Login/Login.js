@@ -1,28 +1,24 @@
 import { Fragment } from "react";
-import styles from "./Register.module.css";
+import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
 
-const Register = () => {
+const Login = () => {
   return (
     <Fragment>
       <div className={styles.body}></div>
       <div className={styles.registerForm}>
+        <div>
+          <img className="mb-5" src="https://placehold.co/100x100/png" />
+          <div className={`${styles.ask}`}>
+            <h3>Don't have an account ?</h3>
+            <Link to={"/register"}>register</Link>
+          </div>
+        </div>
+
         <form>
           <div className={styles["form-group"]}>
             <input />
             <label>Email</label>
-          </div>
-          <div className={styles["form-group"]}>
-            <input />
-            <label>Full Name</label>
-          </div>
-          <div className={styles["form-group"]}>
-            <input />
-            <label>Date of birth</label>
-          </div>
-          <div className={styles["form-group"]}>
-            <input />
-            <label>Username</label>
           </div>
           <div className={styles["form-group"]}>
             <input />
@@ -37,17 +33,9 @@ const Register = () => {
             </button>
           </div>
         </form>
-
-        <div>
-          <img className="mb-5" src="https://placehold.co/100x100/png" />
-          <div className={`${styles.ask}`}>
-            <h3>Have an account ?</h3>
-            <Link to={"/login"}>Log in</Link>
-          </div>
-        </div>
       </div>
     </Fragment>
   );
 };
 
-export default Register;
+export default Login;
