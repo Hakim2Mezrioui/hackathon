@@ -12,7 +12,7 @@ const HeroSection = () => {
       bg="#F5F7FA"
     >
       <Box m={100} mt={130} mb={130} maxW="lg" textAlign={{ base: "center", md: "left" }} pos={'relative'} left={100} transform={"scale(1.2)"}>
-        <Heading w={5000} as="h1" fontSize={50} mb={4} color={'#4D4D4D'} fontFamily={'inter'}>
+        <Heading w={600} as="h1" fontSize={50} mb={4} color={'#4D4D4D'} fontFamily={'inter'}>
           Lessons and insights <br />
           <Text as="span" color="green.400">
             from 8 years
