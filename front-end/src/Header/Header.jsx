@@ -13,11 +13,19 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  getToken,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { Fragment, useEffect } from "react";
 
 export const Header = () => {
   const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+
+  useEffect(() => {
+    const token = cookies.token;
+  }, []);
 
   const onNavigate = (path) => {
     navigate(path);
@@ -39,27 +47,32 @@ export const Header = () => {
             </Link>
             <Link to="#">Lorem</Link>
           </Flex>
-
           <Flex grow={1} justifyContent="end">
-            <Button
-              variant={"solid"}
-              colorScheme={"green"}
-              size={"sm"}
-              mr={4}
-              as="a"
-              onClick={() => onNavigate("/login")}
-            >
-              Register
-            </Button>
-            <Button
-              variant={"outline"}
-              size={"sm"}
-              as="a"
-              bg={"#A7AEB3"}
-              onClick={() => onNavigate("/register")}
-            >
-              Login
-            </Button>
+            {cookies.token && cookies.token.length > 0 ? (
+              <Button>Profile</Button>
+            ) : (
+              <Fragment>
+                <Button
+                  variant={"solid"}
+                  colorScheme={"green"}
+                  size={"sm"}
+                  mr={4}
+                  as="a"
+                  onClick={() => onNavigate("/register")}
+                >
+                  Register
+                </Button>
+                <Button
+                  variant={"outline"}
+                  size={"sm"}
+                  as="a"
+                  bg={"#A7AEB3"}
+                  onClick={() => onNavigate("/login")}
+                >
+                  Login
+                </Button>
+              </Fragment>
+            )}
           </Flex>
         </Flex>
       </Container>
