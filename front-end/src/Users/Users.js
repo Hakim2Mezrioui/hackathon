@@ -47,7 +47,12 @@ const Users = () => {
   const handleAddNew = () => {};
 
   useEffect(() => {
-    const request = { url: "http://127.0.0.1:8000/api/users" };
+    const request = {
+      url: "http://127.0.0.1:8000/api/users",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
     sendRequest(request, applyDate);
   }, []);
 

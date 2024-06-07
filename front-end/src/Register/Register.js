@@ -1,38 +1,100 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import styles from "./Register.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useHttp } from "../useHttp/useHttp";
+import { useCookies } from "react-cookie";
+
+import Swal from "sweetalert2";
 
 const Register = () => {
+  const [data, setData] = useState({});
+  const { loading, sendRequest } = useHttp();
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const request = {
+      url: "http://127.0.0.1:8000/api/register",
+      method: "POST",
+      body: data,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    sendRequest(request, applayData);
+  };
+
+  const applayData = (response) => {
+    const token = response.authorisation.token;
+    if (!token) {
+      return;
+    }
+    setCookie("token", token);
+    navigate("/home");
+    console.log(response);
+  };
+
+  const handleCancel = () => {
+    Swal.fire({
+      icon: "question",
+      title: "Attention",
+      text: "Are you sure ?",
+      showCancelButton: true,
+    }).then(async (response) => {
+      if (response.isConfirmed) {
+        navigate("/home");
+      }
+    });
+  };
+
   return (
     <Fragment>
       <div className={styles.body}></div>
       <div className={styles.registerForm}>
-        <form>
+        <form id="form" onSubmit={handleSubmit}>
           <div className={styles["form-group"]}>
-            <input />
+            <input name="email" onBlur={handleChange} required />
             <label>Email</label>
           </div>
           <div className={styles["form-group"]}>
-            <input />
+            <input name="fullName" onBlur={handleChange} required />
             <label>Full Name</label>
           </div>
           <div className={styles["form-group"]}>
-            <input />
+            <input name="dateOfBirth" onBlur={handleChange} required />
             <label>Date of birth</label>
           </div>
           <div className={styles["form-group"]}>
-            <input />
+            <input name="userName" onBlur={handleChange} required />
             <label>Username</label>
           </div>
           <div className={styles["form-group"]}>
-            <input />
+            <input
+              type="password"
+              name="password"
+              onBlur={handleChange}
+              required
+            />
             <label>Password</label>
           </div>
           <div className={styles["form-button"]}>
             <button className={`${styles.button} ${styles["button-success"]}`}>
               Sign up
             </button>
-            <button className={`${styles.button} ${styles["button-cancel"]}`}>
+            <button
+              type="button"
+              onClick={handleCancel}
+              className={`${styles.button} ${styles["button-cancel"]}`}
+            >
               Cancel
             </button>
           </div>
