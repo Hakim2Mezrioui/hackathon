@@ -10,8 +10,8 @@ function Home() {
     <>
         <Header />
         <HeroSection/>
-        <Services/>
         <Partners/>
+        <Services/>
     </>
 
   );
