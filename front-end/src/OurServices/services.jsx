@@ -1,31 +1,64 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
-import React from "react";
-import { Flex } from "@chakra-ui/react";
-
+// components/CommunitySection.jsx
+import React from 'react';
+import { Box, Flex, Heading, Text, VStack } from '@chakra-ui/react';
 
 const Services = () => {
-
-
-    return(
-        <>
-    <Flex justify="center" mt={14}>
-      <Box textAlign="center">
+  return (
+    <Box bg="white" py={10}>
+      <Flex direction="column" align="center" mb={10}>
         <Heading
-          fontFamily="inter"
-          fontSize={30}
+          fontFamily="Inter"
+          fontSize={{ base: 24, md: 30 }}
           color="#4D4D4D"
-          w={490}
+          textAlign="center"
+          mb={2}
         >
           Manage your entire community in a single system
         </Heading>
-        <Text alignSelf="center" mt={4}>
+        <Text fontSize="lg" color="#4D4D4D">
           Who is Nextcent suitable for?
         </Text>
-      </Box>
-    </Flex>
-        
-        </>
-    )
-}
+      </Flex>
+      <Flex justify="center" wrap="wrap" spacing={8} fontFamily={'inter'}>
+        <Card
+          iconSrc = "/icons/Icon1.svg"
+          title="Membership Organisations"
+          description="Our membership management software provides full automation of membership renewals and payments"
+        />
+        <Card
+          iconSrc = "/icons/Icon1.svg"
+          title="National Associations"
+          description="Our membership management software provides full automation of membership renewals and payments"
+        />
+        <Card
+          iconSrc = "/icons/Icon1.svg"
+          title="Clubs And Groups"
+          description="Our membership management software provides full automation of membership renewals and payments"
+        />
+      </Flex>
+    </Box>
+  );
+};
 
-export default Services
+const Card = ({ icon, title, description }) => (
+  <Box
+    bg="white"
+    borderRadius="md"
+    boxShadow="md"
+    p={6}
+    m={4}
+    textAlign="center"
+    maxW="sm"
+    flex="1"
+  >
+    <VStack spacing={4}>
+      <Box boxSize="50px">{icon}</Box>
+      <Heading size="md" color="#4D4D4D">
+        {title}
+      </Heading>
+      <Text color="gray.600">{description}</Text>
+    </VStack>
+  </Box>
+);
+
+export default Services;
