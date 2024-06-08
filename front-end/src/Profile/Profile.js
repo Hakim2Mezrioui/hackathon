@@ -1,24 +1,102 @@
-import { Fragment } from "react";
-import styles from "./profile.module.css";
+import {
+  Box,
+  Button,
+  Container,
+  Divider,
+  Flex,
+  Heading,
+  Stack,
+  Text,
+  VStack,
+  Icon
+} from '@chakra-ui/react';
+import { FaTint, FaUser, FaPhone, FaEnvelope, FaMapMarkerAlt, FaBirthdayCake, FaVenusMars, FaIdCard } from 'react-icons/fa';
+import { Header } from './header';
+import Footer from './footer';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const Profile = () => {
+export default function BloodDonationProfilePage() {
+  const userlocal = localStorage.getItem('user')
+  const user = JSON.parse(userlocal)
+  const [Image, setImage] = useState(null);
+
+  console.log(Image)
+  console.log(user.Cin);
+  const userData = {
+    Cin: user.Cin,
+    Name: user.Name,
+    PhoneNumber: user.PhoneNumber,
+    Email: user.Email,
+    BirthDate: user.BirthDate,
+    City: user.City,
+  //   Image: user.Image,
+  };
+
+  const [person, setPerson] = useState({
+    fullName: "Marie Lefevre",
+    dateDePerdre: "2024-06-02",
+    ville: "casablanca",
+    dateDeNaissance: "1992-07-30",
+    description: "Femme, 165 cm, cheveux blonds, portait un pantalon rouge et un sac à dos noir.",
+    cin: "BX2345678",
+    email:'mezrioui.hakim@gmail.com',
+    phone: '+21285859'
+  },);
+
+
+  const handleResetPassword = () => {
+    // Handle password reset logic here
+    alert('Redirecting to password reset page');
+  };
+
   return (
-    <Fragment>
-      <div className={styles.back}></div>
-      <div className={styles.infos}>
-        <span>
-            <img src="/images/profile.jpeg" />
-        </span>
-        <span>
-          <h1>Mezrioui Hakim</h1>
-          <h5>mezrioui.hakim@gmail.com</h5>
+      <>
+      <Header/>
+      <Container maxW="container.md"  transform={'scale(0.85)'}>
+      <Flex direction="column" alignItems="center" bg="gray.50" p={8} borderRadius="lg" boxShadow="lg">
+        <Heading as="h1" size="lg" mb={6} color="red.600">
+          My Profile
+        </Heading>
+        <VStack spacing={4} align="stretch" width="full">
+          <Box>
+            <Text fontWeight="bold"><Icon as={FaIdCard} /> CIN:</Text>
+            <Text>{person.cin}</Text>
+          </Box>
+          <Divider />
+          <Box>
+            <Text fontWeight="bold"><Icon as={FaUser} /> Name:</Text>
+            <Text>{person.fullName}</Text>
+          </Box>
+          <Divider />
+          <Box>
+            <Text fontWeight="bold"><Icon as={FaPhone} /> Phone Number:</Text>
+            <Text>{person.phone}</Text>
+          </Box>
+          <Divider />
+          <Box>
+            <Text fontWeight="bold"><Icon as={FaEnvelope} /> Email:</Text>
+            <Text>{person.email}</Text>
+          </Box>
+          <Divider />
+          <Box>
+            <Text fontWeight="bold"><Icon as={FaBirthdayCake} /> Birth Date:</Text>
+            <Text>{person.dateDeNaissance}</Text>
+          </Box>
+          <Box>
+            <Text fontWeight="bold"><Icon as={FaMapMarkerAlt} /> City:</Text>
+            <Text>{person.city}</Text>
+          </Box>
+        </VStack>
 
-          <button>Edit</button>
-          <button>delete your account</button>
-        </span>
-      </div>
-    </Fragment>
+        <Button colorScheme="red" mt={6} onClick={handleResetPassword}>
+          <a href="/resetPassRequest">
+              Reset Password
+          </a>
+        </Button>
+      </Flex>
+    </Container>
+    <Footer/>
+    </>
   );
-};
-
-export default Profile;
+}

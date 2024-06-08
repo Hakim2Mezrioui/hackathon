@@ -4,6 +4,7 @@ import { Header } from "../Header/Header";
 import HeroSection from "../HeroSection/HeroSection";
 import Services from "../OurServices/services";
 import Partners from "../partners/Partners";
+import DetailedPerson from "../Missing/Person";
 
 function Home() {
   return (
