@@ -53,7 +53,7 @@ export default function Profile() {
       <Header/>
       <Container maxW="container.md"  transform={'scale(0.85)'}>
       <Flex direction="column" alignItems="center" bg="gray.50" p={8} borderRadius="lg" boxShadow="lg">
-        <Heading as="h1" size="lg" mb={6} color="red.600">
+        <Heading as="h1" size="lg" mb={6} color="green.600">
           My Profile
         </Heading>
         <VStack spacing={4} align="stretch" width="full">
@@ -87,7 +87,7 @@ export default function Profile() {
           </Box>
         </VStack>
 
-        <Button colorScheme="red" mt={6} onClick={handleResetPassword}>
+        <Button colorScheme="green" mt={6} onClick={handleResetPassword}>
           <a href="/resetPassRequest">
               Reset Password
           </a>

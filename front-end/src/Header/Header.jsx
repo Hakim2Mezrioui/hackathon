@@ -42,11 +42,12 @@ export const Header = () => {
           />
 
           <Flex grow={1} justifyContent={"end"}>
-            <Link mr={12} to="#">
-              Lorem
-            </Link>
-            <Link to="#">Lorem</Link>
-          </Flex>
+            <a  href="/addMissing" style={{ marginRight:20, color:'green' }}>
+              Add Missing
+            </a>
+            <a  href="/Missing" style={{ marginLeft:20, color:'green' }}>
+               Missing
+            </a>          </Flex>
           <Flex grow={1} justifyContent="end">
             {cookies.token && cookies.token.length > 0 ? (
               <Button>Profile</Button>
