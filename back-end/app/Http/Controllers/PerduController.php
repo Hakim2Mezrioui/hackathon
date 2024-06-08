@@ -26,9 +26,9 @@ class PerduController extends Controller
         $image2 = null;
         $image3 = null;
 
-        if (!$user) {
-            return response()->json($this->apiResponse($user, "You should authticated before", 500));
-        }
+        // if (!$user) {
+        //     return response()->json($this->apiResponse($user, "You should authticated before", 500));
+        // }
 
         if ($request->hasFile('image1')) {
             $image1 = $request->file('image1');
@@ -57,7 +57,7 @@ class PerduController extends Controller
             "image3" => $request->image3,
             "cin" => $request->cin,
             "phone" => $request->phone,
-            "user_id" => $user->id,
+            "user_id" => 1,
         ]);
 
         return response()->json($this->apiResponse($perdu, "The perdu added with succesffully", 200));

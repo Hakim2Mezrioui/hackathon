@@ -38,8 +38,8 @@ const DetailedPerson = ({ personId }) => {
   }, []);
 
   const applayData = (data) => {
-    setPerson(data.data)
-    console.log()
+    setPerson(data.data[0]);
+    console.log(data);
   };
   //   useEffect(() => {
   //     // Fetch the person's details using the personId
