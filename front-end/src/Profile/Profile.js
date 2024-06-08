@@ -11,32 +11,29 @@ import {
   Icon
 } from '@chakra-ui/react';
 import { FaTint, FaUser, FaPhone, FaEnvelope, FaMapMarkerAlt, FaBirthdayCake, FaVenusMars, FaIdCard } from 'react-icons/fa';
-import { Header } from './header';
-import Footer from './footer';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
+import { Header } from '../Header/Header';
 
-export default function BloodDonationProfilePage() {
+export default function Profile() {
   const userlocal = localStorage.getItem('user')
   const user = JSON.parse(userlocal)
   const [Image, setImage] = useState(null);
 
-  console.log(Image)
-  console.log(user.Cin);
   const userData = {
-    Cin: user.Cin,
-    Name: user.Name,
-    PhoneNumber: user.PhoneNumber,
-    Email: user.Email,
-    BirthDate: user.BirthDate,
-    City: user.City,
-  //   Image: user.Image,
+  //   Cin: user.Cin,
+  //   Name: user.Name,
+  //   PhoneNumber: user.PhoneNumber,
+  //   Email: user.Email,
+  //   BirthDate: user.BirthDate,
+  //   City: user.City,
+  // //   Image: user.Image,
   };
 
   const [person, setPerson] = useState({
     fullName: "Marie Lefevre",
     dateDePerdre: "2024-06-02",
-    ville: "casablanca",
+    city: "casablanca",
     dateDeNaissance: "1992-07-30",
     description: "Femme, 165 cm, cheveux blonds, portait un pantalon rouge et un sac à dos noir.",
     cin: "BX2345678",
@@ -96,7 +93,6 @@ export default function BloodDonationProfilePage() {
         </Button>
       </Flex>
     </Container>
-    <Footer/>
     </>
   );
 }
