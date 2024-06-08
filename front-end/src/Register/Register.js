@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ role_id: 1 });
   const { loading, sendRequest } = useHttp();
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const navigate = useNavigate();
@@ -70,12 +70,16 @@ const Register = () => {
             <label>Full Name</label>
           </div>
           <div className={styles["form-group"]}>
-            <input name="dateOfBirth" onBlur={handleChange} required />
+            <input type="date" name="dateOfBirth" onBlur={handleChange} required />
             <label>Date of birth</label>
           </div>
           <div className={styles["form-group"]}>
-            <input name="userName" onBlur={handleChange} required />
-            <label>Username</label>
+            <input name="cin" onBlur={handleChange} required />
+            <label>cin</label>
+          </div>
+          <div className={styles["form-group"]}>
+            <input name="phone" onBlur={handleChange} required />
+            <label>phone</label>
           </div>
           <div className={styles["form-group"]}>
             <input
