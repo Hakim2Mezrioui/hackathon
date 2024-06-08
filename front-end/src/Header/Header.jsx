@@ -49,7 +49,7 @@ export const Header = () => {
           </Flex>
           <Flex grow={1} justifyContent="end">
             {cookies.token && cookies.token.length > 0 ? (
-              <Button>Profile</Button>
+              <Button as="a" href="/profile">Profile</Button>
             ) : (
               <Fragment>
                 <Button
