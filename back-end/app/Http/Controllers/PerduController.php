@@ -57,7 +57,7 @@ class PerduController extends Controller
             "image3" => $request->image3,
             "cin" => $request->cin,
             "phone" => $request->phone,
-            "user_id" => 1,
+            "user_id" => 2,
         ]);
 
         return response()->json($this->apiResponse($perdu, "The perdu added with succesffully", 200));
