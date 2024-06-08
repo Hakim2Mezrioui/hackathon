@@ -20,6 +20,7 @@ class Perdu extends Model
         "cin",
         "phone",
         "user_id",
+        "fullName",
     ];
 
     function user()

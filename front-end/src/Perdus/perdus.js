@@ -14,7 +14,7 @@ import { useHttp } from "../useHttp/useHttp";
 // import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 
-const Users = () => {
+const Perdus = () => {
   const [users, setUsers] = useState([]);
   const [usersFiltred, setUsersFiltred] = useState([]);
   const { loading, sendRequest } = useHttp();
@@ -48,7 +48,7 @@ const Users = () => {
 
   useEffect(() => {
     const request = {
-      url: "http://127.0.0.1:8000/api/users",
+      url: "http://127.0.0.1:8000/api/perdus",
       headers: {
         "Content-Type": "application/json",
       },
@@ -63,13 +63,23 @@ const Users = () => {
       sortable: true,
     },
     {
-      name: "Email",
-      selector: (row) => row.email,
+      name: "Ville",
+      selector: (row) => row.ville,
       sortable: true,
     },
     {
-      name: "Date of birth",
-      selector: (row) => row.dateOfBirth,
+      name: "Date of missing",
+      selector: (row) => row.dateDePerdre,
+      sortable: true,
+    },
+    {
+      name: "Phone",
+      selector: (row) => row.phone,
+      sortable: true,
+    },
+    {
+      name: "cin",
+      selector: (row) => row.cin,
       sortable: true,
     },
     {
@@ -129,4 +139,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Perdus;

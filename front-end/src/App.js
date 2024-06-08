@@ -11,6 +11,7 @@ import { store } from "./store/store";
 import Missing from "./Missing/Missing";
 import DetailedPerson from "./Missing/Person";
 import AddMissingPerson from "./forms/AddMissing";
+import Perdus from "./Perdus/perdus";
 
 function App() {
   const value = {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/users" element={<Users />} />
+            <Route path="/perdus" element={<Perdus />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/missing" element={<Missing/>} />
             <Route path="/detailPerson/:cin" element={<DetailedPerson/>} />
