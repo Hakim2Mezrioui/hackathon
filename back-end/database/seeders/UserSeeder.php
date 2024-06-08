@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             User::create([
                 "fullName" => fake()->name(),
                 "email" => fake()->email(),
-                "password" => fake()->password(),
+                "password" => "12345678",
                 "dateOfBirth" => fake()->date(),
             ]);
         }
