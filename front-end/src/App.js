@@ -8,6 +8,7 @@ import { CookiesProvider } from "react-cookie";
 import Profile from "./Profile/Profile";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import Missing from "./Missing/Missing";
 
 function App() {
   const value = {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/users" element={<Users />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/missing" element={<Missing/>} />
           </Routes>
         </BrowserRouter>
       </CookiesProvider>
