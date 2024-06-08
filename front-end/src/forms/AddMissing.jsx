@@ -123,7 +123,7 @@ const AddMissingPerson = ({ onSubmit }) => {
               onChange={handleChange}
             />
           </FormControl>
-          <Button type="submit" color={'white'} bg="#4288BA" size="lg">
+          <Button type="submit" color={'white'} colorScheme="blue" bg="#4288BA" size="lg">
             Add Missing Person
           </Button>
         </VStack>
