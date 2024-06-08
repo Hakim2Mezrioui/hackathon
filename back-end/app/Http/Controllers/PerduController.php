@@ -62,9 +62,10 @@ class PerduController extends Controller
 
         return response()->json($this->apiResponse($perdu, "The perdu added with succesffully", 200));
     }
-    public function perdu($id)
+    public function perdu($cin)
     {
-        $perdu = Perdu::find($id);
+        $perdu = Perdu::where("cin", $cin)->get();
+
         if (!$perdu) {
             return response()->json($this->apiResponse(null, "The perdu not found"), 200);
         }

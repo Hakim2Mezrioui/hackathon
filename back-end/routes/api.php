@@ -39,7 +39,7 @@ Route::post("/deleteRole/{id}", [RoleController::class, "deleteRole"]);
 
 Route::post("/addPerdu", [PerduController::class, "addPerdu"]);
 Route::get("/perdus", [PerduController::class, "perdus"]);
-Route::get("/perdu/{id}", [PerduController::class, "perdu"]);
+Route::get("/perdu/{cin}", [PerduController::class, "perdu"]);
 Route::get("/editPerdu/{id}", [PerduController::class, "editPerdu"]);
 Route::post("/updatePerdu", [PerduController::class, "updatePerdu"]);
 Route::post("/deletePerdu/{id}", [PerduController::class, "deletePerdu"]);

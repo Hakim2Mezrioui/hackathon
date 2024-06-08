@@ -18,12 +18,16 @@ class AuthController extends Controller
             "dateOfBirth" => "required",
         ]);
 
+
         $user = User::create([
             'fullName' => $request->fullName,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             "dateOfBirth" => $request->dateOfBirth,
             'role_id' => $request->role_id,
+            'cin' => $request->cin,
+            'role_id' => $request->role_id,
+            'phone' => $request->phone,
         ]);
 
         // $token = Auth::login($user);

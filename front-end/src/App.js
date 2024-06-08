@@ -29,7 +29,7 @@ function App() {
             <Route path="/users" element={<Users />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/missing" element={<Missing/>} />
-            <Route path="/detailPerson" element={<DetailedPerson/>} />
+            <Route path="/detailPerson/:cin" element={<DetailedPerson/>} />
             <Route path="/addMissing" element={<AddMissingPerson/>} />
           </Routes>
         </BrowserRouter>
