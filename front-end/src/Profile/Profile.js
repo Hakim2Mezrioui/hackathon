@@ -41,7 +41,6 @@ export default function Profile() {
     phone: '+21285859'
   },);
 
-  
 
 
   const handleResetPassword = () => {
