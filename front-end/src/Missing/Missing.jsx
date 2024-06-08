@@ -1,35 +1,76 @@
-import React from "react";
-import { Box, Heading, Text, Button, Image, Flex, useMenuPositioner, Input } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import { Box, Heading, Text, Button, Image, Flex, Input, Select } from "@chakra-ui/react";
 import { missingPeople } from "../missingPeople";
 import { Header } from "../Header/Header";
 import { useState } from "react";
-
+import cities from '../MoroccanCities/MoroccanCities'
 const Missing = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [searchCity, setSearchCity] = useState('');
+    const [citiesJs, setCitiesJs] = useState([]);
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
+      };
+    const handleSelect = (event) => {
+        setSearchCity(event.target.value);
+        console.log('toto');
       };
 
     const filteredMissing = missingPeople.filter(miss => {
         const MissingCin = miss?.cin ?? '';
         const MissingName = miss?.fullName?.toLowerCase() ?? '';
+        const MissingCity = miss?.ville?.toLowerCase() ?? '';
         const searchLower = searchTerm.toLowerCase();
-        return MissingCin.includes(searchLower) || MissingName.includes(searchLower);
+        const cityLower = searchCity.toLocaleLowerCase();
+        console.log(MissingCity);
+
+        return (MissingCin.includes(searchLower) || MissingName.includes(searchLower)) && (cityLower === '' || MissingCity.includes(cityLower));
       });
 
+
+      // const citiesJs = JSON.parse(cities);
+      useEffect(() => {
+        setCitiesJs(cities);
+      },[]);
 
   return (
     <>
     <Header/>
-    <Input
+    <Flex justify={'center'}>
+
+    <Flex justify="space-around" align="center" mb={4} p={5} w={1000}>
+    <Heading flexShrink={0} mr={41} fontFamily={'inter'} >
+            Missing People
+          </Heading><br />
+        <Input
           type="text"
           placeholder="Search by CIN or Name"
           value={searchTerm}
           onChange={handleSearch}
           className="mb-4 w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+          flexGrow={1}
+          mx={2}
         />
+        <Select
+          onChange={handleSelect}
+          value={searchCity}
+          className="mb-4 w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+          flexGrow={1}
+          mx={2}
+        >
+          <option value="">Select City</option>
+          {citiesJs.map((city, index) => (
+            <option key={index} value={city.ville}>{city.ville}</option>
+          ))}
+        </Select>
+      </Flex>
+      </Flex>
+
+
+
+
     <Flex wrap={'wrap'} p={5} justify={'center'}>
       {filteredMissing.map((person) => (
         <Box

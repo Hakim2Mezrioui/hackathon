@@ -11,7 +11,7 @@ export const missingPeople = [
     {
       "fullName": "Marie Lefevre",
       "dateDePerdre": "2024-06-02",
-      "ville": "Lyon",
+      "ville": "casablanca",
       "dateDeNaissance": "1992-07-30",
       "description": "Femme, 165 cm, cheveux blonds, portait un pantalon rouge et un sac à dos noir.",
       "image": "https://example.com/images/marielefevre.jpg",
