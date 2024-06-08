@@ -1,0 +1,36 @@
+.back {
+  background-color: rgb(16, 32, 49);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.infos {
+  color: rgb(173, 200, 189);
+  background-color: white;
+  width: 40em;
+  height: 30em;
+  display: block;
+  margin: auto;
+  display: flex;
+  overflow: hidden;
+  margin-top: 5em;
+}
+
+.infos img {
+    transform: skew(-15deg, -15deg) translate(-10em, -5em);
+    height: 150%;
+    width: 100%;
+}
+
+.infos button {
+  border-radius: 0.5em;
+}
+
+.infos button:first-child {
+  border: 1px solid rgb(173, 200, 189);
+  padding: 0.5em 1.5em;
+}

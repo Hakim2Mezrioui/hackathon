@@ -27,7 +27,7 @@ const Register = () => {
       method: "POST",
       body: data,
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "Application/Json",
       },
     };
     sendRequest(request, applayData);
