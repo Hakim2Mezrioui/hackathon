@@ -14,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { Header } from "../Header/Header";
 import axios from "axios";
+import Footer from "../Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const AddMissingPerson = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +28,8 @@ const AddMissingPerson = () => {
     cin: "",
     phone: "",
   });
+
+  const navigate = useNavigate();
 
   const toast = useToast();
 
@@ -51,6 +55,7 @@ const AddMissingPerson = () => {
         duration: 9000,
         isClosable: true,
       });
+      navigate("/missing");
     } catch (error) {
       toast({
         title: "Error",
@@ -131,7 +136,7 @@ const AddMissingPerson = () => {
                 <FormLabel>Image URL</FormLabel>
                 <Input
                   type="file"
-                  name="image"
+                  name="image1"
                   value={formData.image}
                   onChange={handleChange}
                 />
@@ -167,6 +172,7 @@ const AddMissingPerson = () => {
           </form>
         </Box>
       </Flex>
+      <Footer />
     </>
   );
 };
