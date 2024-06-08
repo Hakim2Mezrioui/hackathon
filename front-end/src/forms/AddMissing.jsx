@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, useToast ,Button,Text ,Flex ,FormControl, FormLabel, Heading, Input, Textarea, VStack } from '@chakra-ui/react';
 import { Header } from '../Header/Header';
 import axios from "axios"
+import Footer from '../Footer/Footer';
 
 const AddMissingPerson = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +11,7 @@ const AddMissingPerson = () => {
     ville: '',
     dateDeNaissance: '',
     description: '',
-    image: '',
+    image1: '',
     cin: '',
     phone: '',
   });
@@ -111,7 +112,7 @@ const AddMissingPerson = () => {
             <FormLabel>Image URL</FormLabel>
             <Input
               type="file"
-              name="image"
+              name="image1"
               value={formData.image}
               onChange={handleChange}
             />
@@ -142,6 +143,7 @@ const AddMissingPerson = () => {
     </Box>
 
     </Flex>
+    <Footer/>
 
     </>
 
