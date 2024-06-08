@@ -32,7 +32,7 @@ export const Header = () => {
   };
 
   return (
-    <Box bg={"white"} px={4} boxShadow="sm" p={3}>
+    <Box bg={"white"} px={4} boxShadow="sm" p={2}>
       <Container maxW="container.xl">
         <Flex h={16} alignItems={"center"} justifyContent={"space-around"}>
           <img
