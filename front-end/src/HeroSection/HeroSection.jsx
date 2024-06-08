@@ -1,9 +1,11 @@
 // components/HeroSection.jsx
 import React from "react";
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
+import Footer from "../Footer/Footer";
 
 const HeroSection = () => {
   return (
+    <>
     <Flex
       direction={{ base: "column", md: "row" }}
       align="center"
@@ -29,6 +31,8 @@ const HeroSection = () => {
         <img src='/illi.png' alt="Illustration" />
       </Box>
     </Flex>
+    </>
+
   );
 };
 

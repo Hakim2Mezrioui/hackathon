@@ -4,6 +4,7 @@ import { Header } from "../Header/Header";
 import HeroSection from "../HeroSection/HeroSection";
 import Services from "../OurServices/services";
 import Partners from "../partners/Partners";
+import Footer from "../Footer/Footer";
 
 function Home() {
   return (
@@ -12,6 +13,7 @@ function Home() {
         <HeroSection/>
         <Partners/>
         <Services/>
+        <Footer/>
         
     </>
 

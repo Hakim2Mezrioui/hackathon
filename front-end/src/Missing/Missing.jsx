@@ -15,6 +15,7 @@ import { useState } from "react";
 import cities from "../MoroccanCities/MoroccanCities";
 import { useHttp } from "../useHttp/useHttp";
 import { useDispatch } from "react-redux";
+import Footer from "../Footer/Footer";
 
 const Missing = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -144,6 +145,7 @@ const Missing = () => {
           </Box>
         ))}
       </Flex>
+      <Footer/>
     </>
   );
 };

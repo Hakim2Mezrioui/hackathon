@@ -11,6 +11,7 @@ import {
 import { Header } from "../Header/Header";
 import { useHttp } from "../useHttp/useHttp";
 import { useParams } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const DetailedPerson = ({ personId }) => {
   const [person, setPerson] = useState({
@@ -137,6 +138,7 @@ const DetailedPerson = ({ personId }) => {
           </Button>
         </Box>
       </Box>
+      <Footer/>
     </>
   );
 };
