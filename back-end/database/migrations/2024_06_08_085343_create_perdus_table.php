@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string("ville");
             $table->date("dateDeNaissance");
             $table->string("description");
-            $table->string("image1");
+            $table->string("image1")->nullable();
             $table->string("image2")->nullable();
             $table->string("image3")->nullable();
             $table->string("cin");

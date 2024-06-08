@@ -25,7 +25,7 @@ class PerduSeeder extends Seeder
                 "image1" => fake()->imageUrl(),
                 "cin" => fake()->randomNumber(),
                 "phone" => fake()->phoneNumber(),
-                "user_id" => 2,
+                "user_id" => 1,
             ]);
         }
     }
