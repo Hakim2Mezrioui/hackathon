@@ -17,6 +17,7 @@
     "ajv": "^8.16.0",
     "ajv-keywords": "^5.1.0",
     "autoprefixer": "^10.4.19",
+    "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "framer-motion": "^11.2.10",
     "primereact": "^10.6.6",

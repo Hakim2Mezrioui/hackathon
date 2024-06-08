@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Button,Text ,Flex ,FormControl, FormLabel, Heading, Input, Textarea, VStack } from '@chakra-ui/react';
+import { Box, useToast ,Button,Text ,Flex ,FormControl, FormLabel, Heading, Input, Textarea, VStack } from '@chakra-ui/react';
 import { Header } from '../Header/Header';
+import axios from "axios"
 
-const AddMissingPerson = ({ onSubmit }) => {
+const AddMissingPerson = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     dateDePerdre: '',
@@ -14,6 +15,8 @@ const AddMissingPerson = ({ onSubmit }) => {
     phone: '',
   });
 
+  const toast = useToast()
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -22,19 +25,27 @@ const AddMissingPerson = ({ onSubmit }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    setFormData({
-      fullName: '',
-      dateDePerdre: '',
-      ville: '',
-      dateDeNaissance: '',
-      description: '',
-      image: '',
-      cin: '',
-      phone: '',
-    });
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/addPerdu', formData);
+      toast({
+        title: 'Success',
+        description: 'Missing person added successfully!',
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'There was an error submitting the form!',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      });
+    }
   };
 
   return (
@@ -99,7 +110,7 @@ const AddMissingPerson = ({ onSubmit }) => {
           <FormControl id="image" isRequired>
             <FormLabel>Image URL</FormLabel>
             <Input
-              type="url"
+              type="file"
               name="image"
               value={formData.image}
               onChange={handleChange}
