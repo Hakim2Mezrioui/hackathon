@@ -22,6 +22,10 @@ class User extends Authenticatable
         'email',
         'password',
         'dateOfBirth',
+        "role_id",
+        "cin",
+        "role_id",
+        "phone",
     ];
 
     /**
@@ -42,4 +46,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function perdu()
+    {
+        $this->hasMany(User::class);
+    }
+
+    public function role()
+    {
+        $this->belongsTo(Role::class);
+    }
 }

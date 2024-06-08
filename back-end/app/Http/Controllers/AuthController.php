@@ -17,15 +17,15 @@ class AuthController extends Controller
             'password' => 'required|string|min:6',
             "dateOfBirth" => "required",
         ]);
-        
+
         $user = User::create([
             'fullName' => $request->fullName,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            "dateOfBirth" => $request->dateOfBirth
-            // 'role' => $request->role,
+            "dateOfBirth" => $request->dateOfBirth,
+            'role_id' => $request->role_id,
         ]);
-        
+
         // $token = Auth::login($user);
         $token = $user->createToken('token')->plainTextToken;
         $cookie = cookie('jwt', $token, 5);
@@ -61,7 +61,7 @@ class AuthController extends Controller
 
         $token = $user->createToken($request->email)->plainTextToken;
 
-        $cookie = cookie('jwt', $token, 1);
+        $cookie = cookie('jwt', $token, 10);
 
         return response()->json(
             [
