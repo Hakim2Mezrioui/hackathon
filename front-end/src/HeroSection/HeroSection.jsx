@@ -23,7 +23,7 @@ const HeroSection = () => {
         <Text fontSize="lg" width={600} mb={6}>
         Use our platform to locate missing family members and friends.
         </Text>
-        <Button colorScheme="green" size="lg">
+        <Button as={"a"} href="/register" colorScheme="green" size="lg">
           Register
         </Button>
       </Box>

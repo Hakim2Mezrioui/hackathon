@@ -17,9 +17,9 @@ const Partners = () => {
       <Heading as="h2" size="xl" mb={4}>
         Our Partners
       </Heading>
-      <Text fontSize="lg" mb={8}>
+      {/* <Text fontSize="lg" mb={8}>
         We have been working with some Fortune 500+ clients
-      </Text>
+      </Text> */}
       <Flex mt={100} justify="space-around" wrap="wrap">
           <Box transform={'scale(2.2)'} p={4}>
             <Image src='/partners/careerCenter.png' alt={`partner logo`} maxH="50px" />

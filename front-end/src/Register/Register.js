@@ -71,7 +71,7 @@ const Register = () => {
           </div>
           <div className={styles["form-group"]}>
             <input type="date" name="dateOfBirth" onBlur={handleChange} required />
-            <label>Date of birth</label>
+            {/* <label>Date of birth</label> */}
           </div>
           <div className={styles["form-group"]}>
             <input name="cin" onBlur={handleChange} required />
